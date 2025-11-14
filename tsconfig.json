@@ -1,26 +1,17 @@
 {
   "compilerOptions": {
-    /* File structure */
-    "rootDir": "./",
-    "outDir": "./dist",
-
-    /* Browser-compatible output */
-    "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "bundler", 
-    "lib": ["esnext", "dom"],
-
-    /* Output extras */
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
     "sourceMap": true,
-
-    /* Type checking */
+    "declaration": true,
+    "declarationMap": true,
     "strict": true,
-    "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-
-    /* Performance & interop */
     "isolatedModules": true,
-    "verbatimModuleSyntax": true
-  }
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": ["main.ts"]
 }

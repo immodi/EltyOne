@@ -1,10 +1,31 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const heading = document.querySelector('h1');
-console.log("asdasdsD");
-if (heading) {
-    heading.addEventListener('click', () => {
-        heading.textContent = 'You clicked the heading!';
-    });
+const checkboxes = document.querySelectorAll(".cb");
+const doneBtn = document.getElementById("done");
+function toggleCheckbox(cb, activate) {
+    cb.classList.remove("animate-forward", "animate-backward");
+    if (activate) {
+        cb.classList.add("animate-forward", "active");
+    }
+    else {
+        cb.classList.add("animate-backward");
+        cb.classList.remove("active");
+    }
+    cb.addEventListener("animationend", () => cb.classList.remove("animate-forward", "animate-backward"), { once: true });
 }
+checkboxes.forEach((cb) => {
+    cb.addEventListener("click", () => {
+        const isActive = cb.classList.contains("active");
+        toggleCheckbox(cb, !isActive);
+        if (cb.classList.contains("check-all")) {
+            checkboxes.forEach((otherCb) => {
+                if (otherCb !== cb) {
+                    toggleCheckbox(otherCb, !isActive);
+                }
+            });
+        }
+    });
+});
+doneBtn?.addEventListener("click", () => {
+    checkboxes.forEach((cb) => cb.classList.remove("active"));
+});
 //# sourceMappingURL=main.js.map
