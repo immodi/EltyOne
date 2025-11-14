@@ -1,0 +1,229 @@
+/* =========================
+   Base Styles
+   ========================= */
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* =========================
+   Card Container
+   ========================= */
+.card {
+    width: 80dvw;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   Option List & Options
+   ========================= */
+.option-list {
+    max-height: calc(4 * 45px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.option-list::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Divider between options */
+.divider {
+    border-top: 1px solid #ddd;
+    margin: 0.8rem 0 1.2rem 0;
+}
+
+/* =========================
+   Done Button
+   ========================= */
+.done-btn {
+    width: 100%;
+    background-color: #FFCE22;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 200ms ease;
+}
+
+.done-btn:hover {
+    background-color: #FFD84D;
+}
+
+/* =========================
+   Checkmark Container
+   ========================= */
+.cb {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #CDCDCD;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Hover effect for inactive checkbox */
+.cb:hover:not(.active) {
+    border-color: #BDBDBD;
+    background: #fff;
+}
+
+/* =========================
+   Checkmark Image
+   ========================= */
+.cb img.check {
+    width: 80%;
+    height: 80%;
+    opacity: 0;
+    transition: filter 200ms ease, opacity 200ms ease;
+    filter: brightness(0) saturate(100%) invert(80%);
+}
+
+.cb:hover:not(.active) img.check {
+    opacity: 1;
+    filter: brightness(0) saturate(100%) invert(80%);
+}
+
+/* =========================
+   Active Checkbox Styles
+   ========================= */
+.cb.active {
+    background: #2469F6;
+    border: 1px solid #2469F6;
+}
+
+.cb.active img.check {
+    opacity: 1;
+    filter: brightness(0) saturate(100%) invert(100%);
+}
+
+/* Hover effect for active checkbox */
+.cb.active:hover {
+    background: #5087F8;
+    border: 1px solid #5087F8;
+}
+
+.cb.active:hover img.check {
+    opacity: 1;
+    filter: brightness(0) saturate(100%) invert(100%);
+}
+
+/* =========================
+   Animation Classes
+   ========================= */
+.cb.animate-forward {
+    animation: forwardStages 400ms forwards;
+}
+
+.cb.animate-backward {
+    animation: backwardStages 400ms forwards;
+}
+
+@keyframes forwardStages {
+    0% {
+        background: #fff;
+        border: 1px solid #CDCDCD;
+        box-shadow: none;
+    }
+
+    15% {
+        border: 1px solid #BDBDBD;
+    }
+
+    30% {
+        border: 1.5px solid #2469F6;
+        box-shadow: 0 0 0 2px rgba(36, 105, 246, 0.1);
+    }
+
+    50% {
+        border: 2px solid #2469F6;
+        box-shadow: 0 0 0 3px rgba(36, 105, 246, 0.15);
+    }
+
+    70% {
+        background: #3B7AF8;
+        border: 1.5px solid #3B7AF8;
+        box-shadow: 0 0 0 1px rgba(36, 105, 246, 0.1);
+    }
+
+    85% {
+        background: #2A70F7;
+        border: 1px solid #2A70F7;
+        box-shadow: none;
+    }
+
+    100% {
+        background: #2469F6;
+        border: 1px solid #2469F6;
+    }
+}
+
+@keyframes backwardStages {
+    0% {
+        background: #2469F6;
+        border: 1px solid #2469F6;
+        box-shadow: none;
+    }
+
+    15% {
+        background: #2A70F7;
+        border: 1px solid #2A70F7;
+    }
+
+    30% {
+        background: #3B7AF8;
+        border: 1.5px solid #3B7AF8;
+        box-shadow: 0 0 0 1px rgba(36, 105, 246, 0.1);
+    }
+
+    50% {
+        background: #fff;
+        border: 2px solid #2469F6;
+        box-shadow: 0 0 0 3px rgba(36, 105, 246, 0.15);
+    }
+
+    70% {
+        border: 1.5px solid #2469F6;
+        box-shadow: 0 0 0 2px rgba(36, 105, 246, 0.1);
+    }
+
+    85% {
+        border: 1px solid #BDBDBD;
+        box-shadow: none;
+    }
+
+    100% {
+        background: #fff;
+        border: 1px solid #CDCDCD;
+    }
+}
